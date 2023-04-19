@@ -38,6 +38,7 @@ update:
 	$(NVIM_UPDATE)
 
 symlink:
+	$(CLEAN)
 	$(SYMLINK_CHECK)
 
 root:
