@@ -6,6 +6,7 @@ sudo apt install -y \
   ranger            \
   make              \
   tmux              \
+  libfuse2          \
   zsh               \
   xsel
 
