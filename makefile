@@ -6,7 +6,6 @@ UPDATE_CONFIGS :=  \
 	git pull
 
 SYMLINK_CHECK := \
-
 	ln -sf $(pwd)/configs/config/nvim ~/.configs/nvim     \
 	ln -sf $(pwd)/configs/config/ranger ~/.configs/ranger \
 	ln -sf $(pwd)/configs/tmux ~/.tmux                    \
