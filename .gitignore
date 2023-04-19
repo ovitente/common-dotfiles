@@ -1,0 +1,14 @@
+**/.git
+**/tags
+*.pyc
+*.pyo
+*/.uuid
+*cache*
+.DS_Store
+.debris
+.mypy_cache/
+backups
+config/nvim/plugged/*
+config/ranger/bookmarks
+config/ranger/history
+vscode

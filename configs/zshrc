@@ -1,0 +1,126 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# oh-my-zsh. Leave loading in this order.
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+source $ZSH/oh-my-zsh.sh
+plugins=(gcloud git zsh-vi-mode kubectl golang vagrant heroku helm )
+COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+
+# Broken for zsh, if uncommented - breaking history.
+# HISTCONTROL=ignoreboth
+# HISTSIZE= HISTFILESIZE= # Infinite history.
+setopt histignorealldups
+setopt HIST_IGNORE_ALL_DUPS
+# REMOVE EXISTING DUPS IN HISTORY
+# awk '!x[$0]++' ~/.zsh_history > ~/.zsh_history.tmp
+# mv ~/.zsh_history.tmp ~/.zsh_history
+# =================
+
+
+# Snippets manager
+export NAP_CONFIG="~/.nap/config.yaml"
+export NAP_HOME="~/.nap"
+export VISUAL="nvim"
+
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="UTF-8"
+export LANG="en_US.UTF-8"
+export TERM=xterm-256color # Fixes vim-tmux text-artifacts issue
+export TERMINFO=/bin/zsh
+export EDITOR=nvim
+export GOPATH=~/.go
+export PATH=$PATH:/usr/local/go/bin:$HOME/.bin:$GOPATH/bin:~/.local/bin/:/usr/local/sbin:$PATH
+
+# GnuUtils path fix
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
+
+# --- OS ---
+# Set to different file
+# alias net="ping google.com"
+alias vimdiff="nvim -d"
+alias net="sampler --config ~/.sampler/network.yaml"
+alias python="python3"
+alias yd="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4' "
+alias yd2="yt-dlp -f 'bestvideo[ext=webm]+bestaudio[ext=webm]' "
+alias bu="brew upgrade"
+alias zedi="$EDITOR ~/.zshrc"
+alias zres="source ~/.zshrc"
+
+# --- DE - WM ---
+alias aledi="$EDITOR ~/.config/alacritty/alacritty.yml"
+alias i3bledi="$EDITOR ~/.i3blocks.conf"
+alias i3edi="$EDITOR ~/.config/i3/config"
+alias polyedi="$EDITOR ~/.config/polybar/config"
+alias redi-rifle="$EDITOR ~/.config/ranger/rifle.conf"
+alias redi="$EDITOR ~/.config/ranger/rc.conf"
+alias resedi="$EDITOR ~/.Xresources"
+alias rofiedi="$EDITOR ~/.config/rofi/config"
+alias tres="xrdb ~/.Xresources"
+
+# --- GIT ---
+alias gitcom='git log --format="%H" -n 1 | pbcopy'
+alias gc="git add . && git commit -a -m 'save' && git push"
+
+# --- Tools ---
+# git branch selector
+fbr() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+    fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
+alias gcp='gcloud config set project $(gcloud projects list --format="value(projectId)" | fzf --height 50% --header-lines=1 --reverse --multi --cycle | awk "{print $1}")'
+alias lsh='docker run --rm -it locashell_x7workstation'
+alias secrethub='docker run --rm -it -e GITHUB_ACCESS_TOKEN -v $PWD:/app dannyben/secrethub'
+alias mtr="sudo /usr/local/sbin/mtr"
+alias k="kubectl"
+alias h="heroku"
+alias h-depl="git add . && git commit -a -m 'heroku wars' && git push heroku $(git branch 2>/dev/null | grep '^*' | colrm 1 2):master"
+alias ra="ranger"
+
+alias tf="terraform"
+alias u7="unison x7"
+alias uniedi="$EDITOR ~/.unison/x7.prf"
+alias vim="nvim"
+alias vimedi="$EDITOR ~/x7/dist/configs/config/nvim/init.vim"
+
+# --- Other ---
+alias bashedi="$EDITOR ~/.bashrc"
+# alias cp="cp -a --preserve=xattr"
+alias insearch="grep --line-buffered --color=never -r \"\" * | fzf"
+alias reset="printf '\033[2J\033[3J\033[1;1H'````"
+alias snipedi="$EDITOR ~/x7/dist/scripts/snippets.sh"
+alias snip="bash ~/x7/dist/scripts/snippets.sh"
+alias fix="bash ~/x7/dist/scripts/fix.sh"
+alias sshedi="$EDITOR ~/.ssh/config"
+
+# Completions
+source '/usr/local/etc/bash_completion.d/google-cloud-sdk'
+
+
+
+# NVM. uncomment to use
+# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+if [ -n "$RANGER_LEVEL" ]; then export PS1="[ranger]$PS1"; fi
+bindkey -v
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

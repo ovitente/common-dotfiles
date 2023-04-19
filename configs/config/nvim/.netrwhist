@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/ikostrub/x7/projects/x7/dotfiles-for-apply/the-primagen/ThePrimeagen'
+let g:netrw_dirhist_5='/Users/ikostrub/x7/dist'
+let g:netrw_dirhist_4='/Users/ikostrub/x7'
+let g:netrw_dirhist_3='/Users/ikostrub/x7/dist'
+let g:netrw_dirhist_2='/Users/ikostrub/x7'
+let g:netrw_dirhist_1='/Users/det'

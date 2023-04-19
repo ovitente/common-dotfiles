@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ "$SHELL" != "/bin/zsh" ]; then
+  chsh -s /bin/zsh
+  echo -e "Shell changed to Zsh.\nPlease log out and log back.\nThen start script again."
+  exit
+fi
+
+apt install -y \
+  git          \
+  neovim       \
+  ranger       \
+  tmux         \
+  zsh          \
+  xsel
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --all # Download fzf binary and update configuration files
+
+make symlink
+
+# TODO: Make capslock - right ctrl.
