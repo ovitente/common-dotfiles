@@ -1,8 +1,12 @@
+all:
+	cd $(CURDIR) && ls
+
 UPDATE_CONFIGS :=  \
 	git reset --hard \
 	git pull
 
 SYMLINK_CHECK := \
+
 	ln -sf $(pwd)/configs/config/nvim ~/.configs/nvim     \
 	ln -sf $(pwd)/configs/config/ranger ~/.configs/ranger \
 	ln -sf $(pwd)/configs/tmux ~/.tmux                    \
@@ -16,6 +20,15 @@ NVIM_UPDATE := \
 # # Load nvim config targeting to this config directory
 # # Open nvim on overrided config to make :PlugUpdate
 
+
+ROOT :=                                               \
+	sudo cp -rf ./configs/tmux           /root/.tmux    \
+	sudo cp -rf ./configs/config/ranger/ /root/.config/ \
+	sudo cp -rf ./configs/config/nvim/   /root/.config/ \
+	sudo cp -rf ./configs/config/zshrc   /root/.zshrc   \
+	sudo ln -s /root/.tmux/tmux.conf     /root/.tmux.conf
+
+
 CLEAN := \
 	rm -rf ~/.config/nvim ~/.config/ranger ~/.tmux ~/.tmux.conf ~/.zshrc
 
@@ -26,6 +39,9 @@ update:
 
 symlink:
 	$(SYMLINK_CHECK)
+
+root:
+	$(ROOT)
 
 nvim:
 	$(NVIM_UPDATE)
