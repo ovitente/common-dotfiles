@@ -1,5 +1,5 @@
 all:
-	cd $(CURDIR) && ls; \
+	cd $(~/.common-dotfiles) && ls; \
 	pwd;
 
 UPDATE_CONFIGS :=  \
