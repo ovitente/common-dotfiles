@@ -9,6 +9,7 @@ sudo apt install -y \
   zsh               \
   xsel
 
+make clean
 cd ~/.common-dotfiles
 
 if [ "$SHELL" != "/bin/zsh" ]; then
@@ -22,7 +23,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
-make clean
 make nvim
 make symlink
 
