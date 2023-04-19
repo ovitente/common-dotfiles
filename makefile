@@ -17,7 +17,7 @@ NVIM_UPDATE :=                                                                  
 # # Open nvim on overrided config to make :PlugUpdate
 
 CLEAN := \
-	rm -rf ~/.config/nvim ~/.config/ranger ~/.tmux ~/.tmux.conf
+	rm -rf ~/.config/nvim ~/.config/ranger ~/.tmux ~/.tmux.conf ~/.zshrc
 
 update:
 	$(UPDATE_CONFIGS)
