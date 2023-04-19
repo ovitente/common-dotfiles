@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-if [ "$SHELL" != "/bin/zsh" ]; then
-  chsh -s /bin/zsh
-  echo -e "Shell changed to Zsh.\nPlease log out and log back.\nThen start script again."
-  exit
-fi
-
 apt install -y \
   git          \
   neovim       \
@@ -14,9 +8,28 @@ apt install -y \
   zsh          \
   xsel
 
+if [ "$SHELL" != "/bin/zsh" ]; then
+  chsh -s /bin/zsh
+  echo -e "Shell changed to Zsh.\nPlease log out and log back.\nThen start script again."
+  exit
+fi
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all # Download fzf binary and update configuration files
 
+sudo cp -rf ./configs/config/tmux    /root/.tmux
+sudo cp -rf ./configs/config/ranger/ /root/.config/
+sudo cp -rf ./configs/config/nvim/   /root/.config/
+sudo cp -rf ./configs/config/zshrc   /root/.zshrc
+
+sudo ln -s /root/.tmux/tmux.conf     /root/.tmux.conf
+
+make nvim
 make symlink
 
 # TODO: Make capslock - right ctrl.
+# TODO: Prepare dotfiles and put them to /etc/skel. Script that will change usernames is required.
+
+echo "Now you can re-login into the shell."

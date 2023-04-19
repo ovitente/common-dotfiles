@@ -8,11 +8,20 @@ SYMLINK_CHECK := \
 	ln -sf $(pwd)/configs/tmux ~/.tmux
 	ln -sf $(pwd)/configs/tmux/tmux.conf ~/.tmux.conf
 
-# NVIM_UPDATE := \
+NVIM_UPDATE :=                                                                     \
+	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage \
+	mv nvim.appimage /usr/bin/nvim                                                   \
+	chmod +x /usr/bin/nvim                                                           \
 # # Load nvim config targeting to this config directory
-# # Cant find a way to override config directory on mac
+# # Open nvim on overrided config to make :PlugUpdate
 
 update:
 	$(UPDATE_CONFIGS)
 	$(SYMLINK_CHECK)
-	# $(NVIM_UPDATE)
+	$(NVIM_UPDATE)
+
+symlink
+	$(SYMLINK_CHECK)
+
+nvim
+	$(NVIM_UPDATE)
