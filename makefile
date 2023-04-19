@@ -14,8 +14,8 @@ SYMLINK_CHECK := \
 
 NVIM_UPDATE := \
 	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage \
-	mv nvim.appimage /usr/bin/nvim                                                   \
-	chmod +x /usr/bin/nvim
+	sudo mv nvim.appimage /usr/bin/nvim                                                   \
+	sudo chmod +x /usr/bin/nvim
 # # Load nvim config targeting to this config directory
 # # Open nvim on overrided config to make :PlugUpdate
 
