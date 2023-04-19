@@ -12,17 +12,22 @@ SYMLINK_CHECK :=                                        \
 NVIM_UPDATE :=                                                                     \
 	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage \
 	mv nvim.appimage /usr/bin/nvim                                                   \
-	chmod +x /usr/bin/nvim                                                           \
+	chmod +x /usr/bin/nvim
 # # Load nvim config targeting to this config directory
 # # Open nvim on overrided config to make :PlugUpdate
+
+CLEAN := \
+	rm -rf ~/.config/nvim ~/.config/ranger ~/.tmux ~/.tmux.conf
 
 update:
 	$(UPDATE_CONFIGS)
 	$(SYMLINK_CHECK)
 	$(NVIM_UPDATE)
 
-symlink
+symlink:
 	$(SYMLINK_CHECK)
 
-nvim
+nvim:
 	$(NVIM_UPDATE)
+
+clean:
