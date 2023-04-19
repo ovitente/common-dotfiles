@@ -1,5 +1,6 @@
 all:
-	cd $(CURDIR) && ls
+	cd $(CURDIR) && ls; \
+	pwd;
 
 UPDATE_CONFIGS :=  \
 	git reset --hard; \
