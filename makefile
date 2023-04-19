@@ -6,6 +6,7 @@ SYMLINK_CHECK :=                                        \
 	ln -sf $(pwd)/configs/config/nvim ~/.configs/nvim     \
 	ln -sf $(pwd)/configs/config/ranger ~/.configs/ranger \
 	ln -sf $(pwd)/configs/tmux ~/.tmux                    \
+	ln -sf $(pwd)/configs/zshrc ~/.zshrc                  \
 	ln -sf $(pwd)/configs/tmux/tmux.conf ~/.tmux.conf
 
 NVIM_UPDATE :=                                                                     \
