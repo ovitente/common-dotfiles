@@ -4,7 +4,7 @@ This project follows goal to have one liner script that will install user friend
 ## Installation
 ```
 git clone --depth 1 https://github.com/ovitente/common-dotfiles.git ~/.common-dotfiles
-~/.common-dotfiles/install
+bash ~/.common-dotfiles/install
 ```
 
 ## Features

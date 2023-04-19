@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-apt install -y \
-  git          \
-  neovim       \
-  ranger       \
-  tmux         \
-  zsh          \
+sudo apt install -y \
+  git               \
+  neovim            \
+  ranger            \
+  make              \
+  tmux              \
+  zsh               \
   xsel
 
 if [ "$SHELL" != "/bin/zsh" ]; then
@@ -17,7 +18,7 @@ fi
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --all # Download fzf binary and update configuration files
+~/.fzf/install --all
 
 sudo cp -rf ./configs/config/tmux    /root/.tmux
 sudo cp -rf ./configs/config/ranger/ /root/.config/
