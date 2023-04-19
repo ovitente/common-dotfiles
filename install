@@ -9,7 +9,7 @@ sudo apt install -y \
   zsh               \
   xsel
 
-cd ./common-dotfiles
+cd ~/.common-dotfiles
 
 if [ "$SHELL" != "/bin/zsh" ]; then
   chsh -s /bin/zsh
@@ -25,13 +25,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 make clean
 make nvim
 make symlink
-
-sudo cp -rf ./configs/tmux           /root/.tmux
-sudo cp -rf ./configs/config/ranger/ /root/.config/
-sudo cp -rf ./configs/config/nvim/   /root/.config/
-sudo cp -rf ./configs/config/zshrc   /root/.zshrc
-
-sudo ln -s /root/.tmux/tmux.conf     /root/.tmux.conf
 
 
 # TODO: Make capslock - right ctrl.

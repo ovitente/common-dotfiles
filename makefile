@@ -1,6 +1,6 @@
-all:
-	cd $(~/.common-dotfiles) && ls; \
-	pwd;
+# all:
+#   cd $(~/.common-dotfiles) && ls; \
+#   pwd;
 
 UPDATE_CONFIGS :=  \
 	git reset --hard; \
