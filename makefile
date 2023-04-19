@@ -2,8 +2,8 @@ all:
 	cd $(CURDIR) && ls
 
 UPDATE_CONFIGS :=  \
-	git reset --hard \
-	git pull
+	git reset --hard; \
+	git pull;
 
 SYMLINK_CHECK := \
 	ln -sf $(pwd)/configs/config/nvim ~/.configs/nvim;     \
