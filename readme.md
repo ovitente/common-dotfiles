@@ -9,6 +9,8 @@ git clone --depth 1 https://github.com/ovitente/common-dotfiles.git ~/.common-do
 
 ## Features
 
+* **Neet cross-tools work between tmux, ranger and neovim**
+
 ### Ranger
 Advanced, vim-like cli file manager with custom-improved user config that is easy to use.
 * Unique config features
@@ -39,7 +41,6 @@ Terminal window manager that significantly improves your debugging/setup product
 `{` - Move window left
 `}` - Move window right
 `space` - Switch window vertical/horizontal alight
-` ` - T
 **Panes**
 `c` - Create new pane
 `,` - Rename pane
