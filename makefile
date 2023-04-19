@@ -2,14 +2,14 @@ UPDATE_CONFIGS :=  \
 	git reset --hard \
 	git pull
 
-SYMLINK_CHECK :=                                        \
+SYMLINK_CHECK := \
 	ln -sf $(pwd)/configs/config/nvim ~/.configs/nvim     \
 	ln -sf $(pwd)/configs/config/ranger ~/.configs/ranger \
 	ln -sf $(pwd)/configs/tmux ~/.tmux                    \
 	ln -sf $(pwd)/configs/zshrc ~/.zshrc                  \
 	ln -sf $(pwd)/configs/tmux/tmux.conf ~/.tmux.conf
 
-NVIM_UPDATE :=                                                                     \
+NVIM_UPDATE := \
 	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage \
 	mv nvim.appimage /usr/bin/nvim                                                   \
 	chmod +x /usr/bin/nvim
@@ -31,3 +31,4 @@ nvim:
 	$(NVIM_UPDATE)
 
 clean:
+	$(CLEAN)
