@@ -9,6 +9,8 @@ sudo apt install -y \
   zsh               \
   xsel
 
+cd ./common-dotfiles
+
 if [ "$SHELL" != "/bin/zsh" ]; then
   chsh -s /bin/zsh
   echo -e "Shell changed to Zsh.\nPlease log out and log back.\nThen start script again."
