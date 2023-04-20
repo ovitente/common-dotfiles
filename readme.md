@@ -27,23 +27,23 @@ Terminal window manager that significantly improves your debugging/setup product
 * Modifyed keybinding to work with normal length of fingers.
 
 #### Keybindings
-`Super` keybind is `Ctrl+F`. Next will be only symbols of actions.
-**Common**
+`Super` keybind is `Ctrl+F`. Next will be only symbols of actions. <br>
+**Common** <br>
 `[` - Escape sequence to move cursor all around the current window <br>
 `e` - Edit current tmux config <br>
 `r` - Source current tmux config <br>
-**Splits**
+**Splits** <br>
 `_` - vertical split <br>
 `-` - horisontal split <br>
 `!` - Detach split as a separate pane <br>
-**Sessions**
+**Sessions** <br>
 `C` - Create new session <br>
 `4` - Rename current session <br>
-**Windows**
+**Windows** <br>
 `{` - Move window left <br>
 `}` - Move window right <br>
 `space` - Switch window vertical/horizontal alight <br>
-**Panes**
+**Panes** <br>
 `c` - Create new pane <br>
 `,` - Rename pane <br>
 `arrows` - Move pane left\right <br>
