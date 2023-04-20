@@ -6,11 +6,11 @@ UPDATE_CONFIGS :=  \
 	git reset --hard; \
 	git pull;
 
-SYMLINK_CHECK :=                                           \
-	ln -sf $(CURDIR)/configs/config/nvim ~/.config/nvim;     \
-	ln -sf $(CURDIR)/configs/config/ranger ~/.config/ranger; \
-	ln -sf $(CURDIR)/configs/tmux ~/.tmux;                   \
-	ln -sf $(CURDIR)/configs/zshrc ~/.zshrc;                 \
+SYMLINK_CHECK :=                                            \
+	ln -sf $(CURDIR)/configs/config/nvim    ~/.config/nvim;   \
+	ln -sf $(CURDIR)/configs/config/ranger  ~/.config/ranger; \
+	ln -sf $(CURDIR)/configs/zshrc          ~/.zshrc;         \
+	ln -sf $(CURDIR)/configs/tmux           ~/.tmux;          \
 	ln -sf $(CURDIR)/configs/tmux/tmux.conf ~/.tmux.conf;
 
 NVIM_UPDATE := \

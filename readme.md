@@ -3,6 +3,8 @@ This project follows goal to have one liner script that will install user friend
 
 ## Installation
 ```
+
+rm -rf ~/.common-dotfiles
 git clone --depth 1 https://github.com/ovitente/common-dotfiles.git ~/.common-dotfiles
 bash ~/.common-dotfiles/install
 ```
@@ -27,24 +29,24 @@ Terminal window manager that significantly improves your debugging/setup product
 #### Keybindings
 `Super` keybind is `Ctrl+F`. Next will be only symbols of actions.
 **Common**
-`[` - Escape sequence to move cursor all around the current window
-`e` - Edit current tmux config
-`r` - Source current tmux config
+`[` - Escape sequence to move cursor all around the current window <br>
+`e` - Edit current tmux config <br>
+`r` - Source current tmux config <br>
 **Splits**
-`_` - vertical split
-`-` - horisontal split
-`!` - Detach split as a separate pane
+`_` - vertical split <br>
+`-` - horisontal split <br>
+`!` - Detach split as a separate pane <br>
 **Sessions**
-`C` - Create new session
-`4` - Rename current session
+`C` - Create new session <br>
+`4` - Rename current session <br>
 **Windows**
-`{` - Move window left
-`}` - Move window right
-`space` - Switch window vertical/horizontal alight
+`{` - Move window left <br>
+`}` - Move window right <br>
+`space` - Switch window vertical/horizontal alight <br>
 **Panes**
-`c` - Create new pane
-`,` - Rename pane
-`arrows` - Move pane left\right
+`c` - Create new pane <br>
+`,` - Rename pane <br>
+`arrows` - Move pane left\right <br>
 
 ### Neovim
 Self-explanatory, one of the best solutions for editing text files. Especially configs
